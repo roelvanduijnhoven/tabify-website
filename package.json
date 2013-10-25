@@ -9,7 +9,8 @@
     "express": "3.4.3",
     "jade": "*",
     "less-middleware": "*",
-    "tabify": "0.0.1"
+    "tabify": "0.0.1",
+    "midifile": "~0.1.3"
   },
   "engines": {
     "node": "0.10.x",
