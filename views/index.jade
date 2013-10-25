@@ -3,8 +3,12 @@ extends layout
 block content
   p Upload a midi file and watch tabify do its work.
 
-  form(action="/upload", method="post", enctype="multipart/form-data")
+  form(method="post", enctype="multipart/form-data")
     div
+      label Position of the capo
+      input(type="text", name="capo", value="0")
+    div
+      label MIDI file
       input(type="file", name="midi")
     div
       input(type="submit")

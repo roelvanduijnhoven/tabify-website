@@ -18,7 +18,7 @@ exports.upload = function(req, res){
         var bufferedMidi = bufferHelper.toArrayBuffer(data);
         var midi = new midiParser(bufferedMidi);
 
-        var guitar = guitarHelper.placeCapo(guitarHelper.standardTuning(), 8);
+        var guitar = guitarHelper.placeCapo(guitarHelper.standardTuning(), Number(req.body.capo));
         var sheet = new tab.Sheet(guitar.length);
 
         var notes = midiHelper.getNotes(midi);
@@ -35,6 +35,6 @@ exports.upload = function(req, res){
             sheet.rest();
         }
 
-        res.render('upload', {tab: tab.format(sheet, 80)});
+        res.render('upload', {tab: tab.format(sheet, 80), capo: Number(req.body.capo)});
     });
 };
